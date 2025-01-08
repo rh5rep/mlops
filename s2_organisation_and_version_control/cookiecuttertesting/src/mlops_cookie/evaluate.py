@@ -10,9 +10,11 @@ def evaluate(model_checkpoint: str) -> None:
     """Evaluate a trained model."""
     print("Evaluating like my life depended on it")
     print(model_checkpoint)
-    
-    dataset = CorruptMNISTDataset(raw_data_path="/Users/rami/Documents/DTU/Jan25/dtu_mlops/s2_organisation_and_version_control/cookiecuttertesting/data/raw/corruptmnist_v1")
-    
+
+    dataset = CorruptMNISTDataset(
+        raw_data_path="/Users/rami/Documents/DTU/Jan25/dtu_mlops/s2_organisation_and_version_control/cookiecuttertesting/data/raw/corruptmnist_v1"
+    )
+
     model = Model().to(DEVICE)
     model.load_state_dict(torch.load(model_checkpoint))
 

@@ -11,8 +11,10 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
     """Train a model on MNIST."""
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
-    
-    dataset = CorruptMNISTDataset(raw_data_path="/Users/rami/Documents/DTU/Jan25/dtu_mlops/s2_organisation_and_version_control/cookiecuttertesting/data/raw/corruptmnist_v1")
+
+    dataset = CorruptMNISTDataset(
+        raw_data_path="/Users/rami/Documents/DTU/Jan25/dtu_mlops/s2_organisation_and_version_control/cookiecuttertesting/data/raw/corruptmnist_v1"
+    )
 
     model = Model().to(DEVICE)
     train_set, _ = dataset.get_datasets()
