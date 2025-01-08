@@ -15,11 +15,6 @@ class CorruptMNISTDataset(Dataset):
     def __init__(self, raw_data_path: Path) -> None:
         self.data_path = raw_data_path
 
-        # self.train_images = torch.load(self.data_path / "train_images.pt")
-        # self.train_target = torch.load(self.data_path / "train_target.pt")
-        # self.test_images = torch.load(self.data_path / "test_images.pt")
-        # self.test_target = torch.load(self.data_path / "test_target.pt")
-
         train_images, train_target = [], []
         for i in range(6):
             train_images.append(torch.load(f"{self.data_path}/train_images_{i}.pt"))
