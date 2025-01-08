@@ -12,10 +12,10 @@
 #             train_target.append(np.load(DATAPATH + f"train_target_{i}.pt"))
 #         train_images = np.concatenate(train_images)
 #         train_target = np.concatenate(train_target)
-        
+
 #         test_images: torch.Tensor = np.load(DATAPATH + "test_images.pt")
 #         test_target: torch.Tensor = np.load(DATAPATH + "test_target.pt")
-        
+
 #         train_images = train_images.unsqueeze(1).float()
 #         test_images = test_images.unsqueeze(1).float()
 #         train_target = train_target.long()
@@ -23,9 +23,9 @@
 
 #         train_set = list(zip(train_images, train_target))
 #         test_set = list(zip(test_images, test_target))
-        
+
 #         return train_set, test_set
-        
+
 #     def __getitem__(self, idx):
 #         image = self.images[idx]
 #         label = self.labels[idx]
@@ -35,29 +35,29 @@
 # #     # Initialize datasets
 # #     train_dataset = CorruptMNIST(train=True)
 # #     test_dataset = CorruptMNIST(train=False)
-    
+
 # #     # Create dataloaders
 # #     train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True)
 # #     test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False)
-    
+
 # #     return train_loader, test_loader
 
 
 # # def show_examples(data_loader):
 # #     import matplotlib.pyplot as plt
-    
+
 # #     # Get a batch of images
 # #     images, labels = next(iter(data_loader))
-    
+
 # #     # Create a grid of 3x3 images
 # #     fig, axes = plt.subplots(3, 3, figsize=(8, 8))
-    
+
 # #     for i, ax in enumerate(axes.flat):
 # #         if i < len(images):
 # #             ax.imshow(images[i].squeeze(), cmap='gray')
 # #             ax.set_title(f'Label: {labels[i].item()}')
 # #             ax.axis('off')
-    
+
 # #     plt.tight_layout()
 # #     plt.show()
 

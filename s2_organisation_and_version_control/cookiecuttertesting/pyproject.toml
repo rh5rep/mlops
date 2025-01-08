@@ -1,23 +1,31 @@
 [build-system]
-requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools",
+]
 
 [project]
-name = "mlops_cookie"
+name = "mlops-cookie"
 version = "0.0.1"
 description = "tsting cookiecutter"
+readme = "README.md"
+keywords = [
+  "machine learning",
+  "MLOps",
+]
 authors = [
   { name = "rami", email = "your@email.com" },
 ]
-
-keywords = ["machine learning", "MLOps"]
+requires-python = ">=3.12"
 classifiers = [
   "Development Status :: 3 - Alpha",
-  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
 ]
-readme = "README.md"
-requires-python = ">=3.12"
-dynamic = ["dependencies", "optional-dependencies"]
+dynamic = [
+  "dependencies",
+  "optional-dependencies",
+]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
