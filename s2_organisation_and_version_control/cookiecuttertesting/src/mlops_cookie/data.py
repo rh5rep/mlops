@@ -10,6 +10,28 @@ def normalize(images: torch.Tensor) -> torch.Tensor:
 
 
 class CorruptMNISTDataset(Dataset):
+    """Custom dataset for the corrupted MNIST data.
+
+    This class implements a custom PyTorch Dataset for handling the corrupted MNIST dataset.
+    It loads train and test images/targets, applies preprocessing, and provides standard
+    dataset functionality.
+
+    Args:
+        raw_data_path (Path): Path to the directory containing the raw data files
+
+    Attributes:
+        data_path (Path): Path to the raw data directory
+        train_images (torch.Tensor): Tensor containing training images
+        test_images (torch.Tensor): Tensor containing test images  
+        train_target (torch.Tensor): Tensor containing training labels
+        test_target (torch.Tensor): Tensor containing test labels
+
+    Methods:
+        __len__(): Returns the length of the training dataset
+        __getitem__(index): Returns a sample from the training dataset at given index
+        preprocess(output_folder): Preprocesses and saves the data to specified output folder
+        get_datasets(): Returns train and test data as TensorDatasets
+    """
     """Custom dataset for the corrupted MNIST data."""
 
     def __init__(self, raw_data_path: Path) -> None:
