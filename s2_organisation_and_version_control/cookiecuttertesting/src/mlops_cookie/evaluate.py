@@ -1,7 +1,8 @@
 import torch
 import typer
-from data import CorruptMNISTDataset
 from model import Model
+
+from data import CorruptMNISTDataset
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
