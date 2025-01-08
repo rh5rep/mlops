@@ -1,7 +1,7 @@
+from collections.abc import Callable  # you will need all of them in your code
+
 import torch
 from torch import nn
-
-from typing import Callable, Optional, Tuple, Union, List  # you will need all of them in your code
 
 
 class Network(nn.Module):
@@ -38,8 +38,8 @@ class Network(nn.Module):
 
 
 def validation(
-    model: nn.Module, testloader: torch.utils.data.DataLoader, criterion: Union[Callable, nn.Module]
-) -> Tuple[float, float]:
+    model: nn.Module, testloader: torch.utils.data.DataLoader, criterion: Callable | nn.Module
+) -> tuple[float, float]:
     """Validation pass through the dataset."""
     accuracy = 0
     test_loss = 0
@@ -64,8 +64,8 @@ def train(
     model: nn.Module,
     trainloader: torch.utils.data.DataLoader,
     testloader: torch.utils.data.DataLoader,
-    criterion: Union[Callable, nn.Module],
-    optimizer: Union[None | torch.optim.Optimizer] = None,
+    criterion: Callable | nn.Module,
+    optimizer: None | torch.optim.Optimizer = None,
     epochs: int = 5,
     print_every: int = 40,
 ) -> None:
