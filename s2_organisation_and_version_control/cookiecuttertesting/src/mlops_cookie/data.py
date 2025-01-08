@@ -22,7 +22,7 @@ class CorruptMNISTDataset(Dataset):
     Attributes:
         data_path (Path): Path to the raw data directory
         train_images (torch.Tensor): Tensor containing training images
-        test_images (torch.Tensor): Tensor containing test images  
+        test_images (torch.Tensor): Tensor containing test images
         train_target (torch.Tensor): Tensor containing training labels
         test_target (torch.Tensor): Tensor containing test labels
 
@@ -32,6 +32,7 @@ class CorruptMNISTDataset(Dataset):
         preprocess(output_folder): Preprocesses and saves the data to specified output folder
         get_datasets(): Returns train and test data as TensorDatasets
     """
+
     """Custom dataset for the corrupted MNIST data."""
 
     def __init__(self, raw_data_path: Path) -> None:
