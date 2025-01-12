@@ -192,12 +192,13 @@
 
 # p = pstats.Stats("profile.txt")
 # p.strip_dirs().sort_stats("cumulative").print_stats(10)
- # %%
+# %%
+
+import os
 
 import torch
 import torchvision.models as models
-from torch.profiler import profile, ProfilerActivity, tensorboard_trace_handler
-import os
+from torch.profiler import ProfilerActivity, profile, tensorboard_trace_handler
 
 # Create directory for tensorboard logs
 os.makedirs("./log/resnet34", exist_ok=True)
@@ -205,7 +206,9 @@ os.makedirs("./log/resnet34", exist_ok=True)
 model = models.resnet18()
 inputs = torch.randn(5, 3, 224, 224)
 
-with profile(activities=[ProfilerActivity.CPU], record_shapes=True, on_trace_ready=tensorboard_trace_handler("./log/resnet34")) as prof:
+with profile(
+    activities=[ProfilerActivity.CPU], record_shapes=True, on_trace_ready=tensorboard_trace_handler("./log/resnet34")
+) as prof:
     for _ in range(10):
         model(inputs)
         prof.step()
