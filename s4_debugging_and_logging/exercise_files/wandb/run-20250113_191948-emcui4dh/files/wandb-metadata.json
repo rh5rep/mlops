@@ -1,0 +1,47 @@
+{
+  "os":  "macOS-15.1-arm64-arm-64bit",
+  "python":  "CPython 3.12.4",
+  "startedAt":  "2025-01-13T18:19:49.045341Z",
+  "args":  [
+    "train"
+  ],
+  "program":  "/Users/rami/Documents/DTU/Jan25/dtu_mlops/s4_debugging_and_logging/exercise_files/main.py",
+  "codePath":  "s4_debugging_and_logging/exercise_files/main.py",
+  "git":  {
+    "remote":  "https://github.com/rh5rep/mlops.git",
+    "commit":  "96568f54e21cab337364b373db0dcedf5e13730c"
+  },
+  "email":  "s242507@dtu.dk",
+  "root":  "/Users/rami/Documents/DTU/Jan25/dtu_mlops/s4_debugging_and_logging/exercise_files",
+  "host":  "Ramis-MacBook-Pro.local",
+  "executable":  "/Users/rami/Documents/DTU/Jan25/dtu_mlops/venv/bin/python",
+  "codePathLocal":  "main.py",
+  "cpu_count":  12,
+  "cpu_count_logical":  12,
+  "disk":  {
+    "/":  {
+      "total":  "994662584320",
+      "used":  "308654526464"
+    },
+    "/System/Volumes/Data":  {
+      "total":  "994662584320",
+      "used":  "308654526464"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  12,
+    "countLogical":  12
+  },
+  "apple":  {
+    "name":  "Apple M2 Pro",
+    "ecpuCores":  4,
+    "pcpuCores":  8,
+    "gpuCores":  19,
+    "memoryGb":  16,
+    "swapTotalBytes":  "2147483648",
+    "ramTotalBytes":  "17179869184"
+  }
+}

@@ -1,0 +1,1 @@
+{"train_loss":2.314347267150879,"train_accuracy":0.0625,"_timestamp":1.73679318358002e+09,"_runtime":2.00772,"_step":1,"images":{"size":1985,"path":"media/images/images_1_9d99e4f00fd13dec7969.png","format":"png","width":152,"height":32,"caption":"Input images","_type":"image-file","sha256":"9d99e4f00fd13dec7969300b541dbde6373629022ae6a066b03d1cb8ce83b2e3"},"_wandb":{"runtime":2}}
