@@ -1,12 +1,12 @@
+import os
+
 import matplotlib.pyplot as plt
 import torch
 import typer
-from data import corrupt_mnist
-from model import MyAwesomeModel
 import wandb
+from data import corrupt_mnist
 from dotenv import load_dotenv
-import os
-from sklearn.metrics import RocCurveDisplay
+from model import MyAwesomeModel
 
 load_dotenv()
 
@@ -14,6 +14,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 
 app = typer.Typer()
 project = os.getenv("WANDB_PROJECT")
+
 
 @app.command()
 def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
@@ -50,7 +51,6 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
             wandb.log({"loss": loss.item(), "accuracy": accuracy})
             wandb.log({"Images": [wandb.Image(img[i]) for i in range(img.size(0))]})
 
-
     print("Training complete")
     torch.save(model.state_dict(), "model.pth")
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))
@@ -82,13 +82,18 @@ def evaluate(model_checkpoint: str) -> None:
         total += target.size(0)
     print(f"Test accuracy: {correct / total}")
 
-
     torch.save(model.state_dict(), "model.pth")
-    artifacts = wandb.Artifact(name="corrput_mnist_model", type="model", description="A model trained on corrupt MNIST", metadata={"accuracy": correct / total})
+    artifacts = wandb.Artifact(
+        name="corrput_mnist_model",
+        type="model",
+        description="A model trained on corrupt MNIST",
+        metadata={"accuracy": correct / total},
+    )
+
 
 if __name__ == "__main__":
     typer.run(train)
-    
+
 
 # def train(lr: float = 0.001, batch_size: int = 32, epochs: int = 5) -> None:
 #     """Train a model on MNIST."""
