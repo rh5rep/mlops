@@ -1,7 +1,8 @@
 import lightning as l
-from torch import nn, optim
 import torch
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint
+from torch import nn, optim
+
 
 class MyLightningModule(l.LightningModule):
     def __init__(self):
@@ -27,11 +28,11 @@ class MyLightningModule(l.LightningModule):
     def training_step(self, batch, batch_idx):
         img, target = batch
         y_pred = self(img)
-        loss = self.loss_fn(y_pred, target)
-        return loss
+        return self.loss_fn(y_pred, target)
 
     def configure_optimizers(self):
         return optim.Adam(self.parameters(), lr=1e-3)
+
 
 if __name__ == "__main__":
     net = MyLightningModule()
@@ -40,9 +41,8 @@ if __name__ == "__main__":
     dummy_input = torch.randn(1, 1, 28, 28)
     output = net(dummy_input)
     print(f"Output shape: {output.shape}")
-    
+
     early_stopping = EarlyStopping(monitor="val_loss", patience=3, mode="min")
     checkpoint = ModelCheckpoint(monitor="val_loss", mode="min")
     trainer = l.Trainer(max_epochs=10, max_steps=100, limit_train_batches=0.2, callbacks=[early_stopping, checkpoint])
     trainer.fit(net)
-    
