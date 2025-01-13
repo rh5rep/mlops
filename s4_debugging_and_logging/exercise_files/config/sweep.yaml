@@ -1,7 +1,7 @@
 program: train.py
 name: sweepdemo
 project: my-project  # change this
-entity: rami  # change this
+entity: s233353-danmarks-tekniske-universitet-dtu  # change this
 metric:
     goal: minimize
     name: validation_loss
