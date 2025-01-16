@@ -7,7 +7,7 @@ steps:
     '-t',
     'europe-west1-docker.pkg.dev/testing-448019/test-reg',
     '-f',
-    's6_cloud/Dockerfile'
+    'Dockerfile'
   ]
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Push container image'
