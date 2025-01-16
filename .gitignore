@@ -171,3 +171,5 @@ cython_debug/
 .pypirc
 
 s1/data/*
+
+s4_debugging_and_logging/
